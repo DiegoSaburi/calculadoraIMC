@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import './classes/containerRetangular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'enums.dart';
+import 'classes/roundiconbutton.dart';
 import 'constants.dart';
 
 var generoSelecionado;
 var altura = 175.0;
+var peso = 60;
+var idade = 18;
 
 class InputPage extends StatefulWidget {
   InputPage({Key key, this.title}) : super(key: key);
@@ -114,7 +117,6 @@ class _InputPageState extends State<InputPage> {
                       onChanged: (double novaAltura) {
                         setState(() {
                           altura = novaAltura;
-                          print(novaAltura);
                         });
                       },
                     ),
@@ -130,7 +132,49 @@ class _InputPageState extends State<InputPage> {
                   child: ContainerRetangular(
                     color: kActiveCard,
                     child: Column(
-                      children: [],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "PESO",
+                          style: kLabelStyle,
+                        ),
+                        Text(
+                          peso.toString(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            color: Colors.white,
+                            fontSize: 48,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icone: Icon(
+                                FontAwesomeIcons.minus,
+                                color: Colors.white,
+                              ),
+                              ontap: () {
+                                setState(() {
+                                  peso--;
+                                });
+                              },
+                            ),
+                            RoundIconButton(
+                              icone: Icon(
+                                FontAwesomeIcons.plus,
+                                color: Colors.white,
+                              ),
+                              ontap: () {
+                                setState(() {
+                                  peso++;
+                                });
+                              },
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -138,18 +182,73 @@ class _InputPageState extends State<InputPage> {
                   child: ContainerRetangular(
                     color: kActiveCard,
                     child: Column(
-                      children: [],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "IDADE",
+                          style: kLabelStyle,
+                        ),
+                        Text(
+                          idade.toString(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            color: Colors.white,
+                            fontSize: 48,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icone: Icon(
+                                FontAwesomeIcons.minus,
+                                color: Colors.white,
+                              ),
+                              ontap: () {
+                                setState(() {
+                                  idade--;
+                                });
+                              },
+                            ),
+                            RoundIconButton(
+                              icone: Icon(
+                                FontAwesomeIcons.plus,
+                                color: Colors.white,
+                              ),
+                              ontap: () {
+                                setState(() {
+                                  idade++;
+                                });
+                              },
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: Color(0xFFEB1555),
-            margin: EdgeInsets.only(top: 8),
-            width: double.infinity,
-            height: 64,
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              color: Color(0xFFEB1555),
+              margin: EdgeInsets.only(top: 8),
+              width: double.infinity,
+              height: 64,
+              child: Center(
+                child: Text(
+                  "CALCULAR",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white,
+                    fontSize: 36,
+                  ),
+                ),
+              ),
+            ),
           )
         ],
       ),

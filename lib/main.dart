@@ -1,5 +1,6 @@
 import 'package:calculadoraIMC/inputPage.dart';
 import 'package:flutter/material.dart';
+import 'resultado.dart';
 
 void main() {
   runApp(CalculadoraIMC());
@@ -16,7 +17,10 @@ class CalculadoraIMC extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xFF0A0E21),
         textTheme: Typography.whiteHelsinki,
       ),
-      home: InputPage(title: 'Calculadora de IMC'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => InputPage(title: 'Calculadora de IMC'),
+      },
     );
   }
 }
